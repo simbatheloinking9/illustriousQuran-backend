@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <title>IUST Quran</title>
+    <style>
+      .bold {
+        font-weight: bold;
+      }
+      .main {
+        /* display: flex;
+        flex-direction: column;
+        box-sizing: content-box; */
+        display: inline-block;
+      }
+      .addGrey {
+        background-color: rgb(198, 194, 194);
+      }
+      .node {
+        height: 10vh;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      .nodeNumber {
+        flex: 5%;
+      }
+      .nodeType {
+        flex: 10%;
+      }
+      .nodeTitle {
+        flex: 35%;
+        font-style: italic;
+      }
+      .nodeDes {
+        flex: 35%;
+      }
+      .nodeLink {
+        flex: 10%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 style="text-align: center">Server Info</h1>
+    <p style="text-align: center">
+      *this documentation page is still under development*
+    </p>
+    <div id="main">
+      <div class="node">
+        <div class="nodeNumber bold">S.No.</div>
+        <div class="nodeType bold">Type</div>
+        <div class="nodeTitle bold">Title</div>
+        <div class="nodeDes bold">Description</div>
+        <div class="nodeLink bold">Example</div>
+      </div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          id: 1,
+          linkType: "Meta Data",
+          title: `https://api.illustriousquran.com/v1/scripture/chapterMetaData/chapter/*chapter
+          Number*`,
+          description: `Provides the Meta Data for the *chapter Number*`,
+          link: `https://api.illustriousquran.com/v1/scripture/chapterMetaData/chapter/2`,
+        },
+        {
+          id: 2,
+          linkType: "Meta Data",
+          title: `https://api.illustriousquran.com/v1/scripture/chapterMetaData/all`,
+          description: `Provides all Meta Data`,
+          link: `https://api.illustriousquran.com/v1/scripture/chapterMetaData/all`,
+        },
+        {
+          id: 3,
+          linkType: "Translation",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/search/*Chapter Number*",
+          description:
+            "Provides all arabic text variations and all available translations based on *Chapter Number*",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/search/9",
+        },
+        {
+          id: 4,
+          linkType: "Translation",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/search/*Chapter Number*/*Verse Number*",
+          description:
+            "Provides all arabic text variation and all availble translations based on *Chapter number* and *Verse Number*",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/search/4/1",
+        },
+        {
+          id: 5,
+          linkType: "Translation",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/get?language=*Translation Language*&author=*Translation Authot*&text=*Arabic Text Type*&chapter=*Chapter Number*",
+          description:
+            "Provides arabic text based on *Arabic Text Type*,  translation language based on *Translation Language*, translation done by *Translation Author* and *Chapter Number* ",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/get?language=en&author=Ahmed Ali&text=simple&chapter=9",
+        },
+        {
+          id: 6,
+          linkType: "Server Info",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/info/languages",
+          description:
+            "All languages in which translation are available on the server",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/info/languages",
+        },
+        {
+          id: 7,
+          linkType: "Server Info",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/info/arabicText",
+          description: "All Arabic text variations available on the server",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/info/arabicText",
+        },
+        {
+          id: 8,
+          linkType: "Server Info",
+          title:
+            "https://api.illustriousquran.com/v1/scripture/quraan/info/authorsForLanguage?language=*Language*",
+          description: "All available translations based on the *Language*",
+          link: "https://api.illustriousquran.com/v1/scripture/quraan/info/authorsForLanguage?language=en",
+        },
+      ];
+
+      const table = document.getElementById("main");
+      data.forEach((data) => {
+        const addition = data.id % 2 ? "addGrey" : "";
+        const element = `
+        <div class="node ${addition}">
+            <div class="nodeNumber">${data.id}</div>
+            <div class="nodeType">${data.linkType}</div>
+        <div class="nodeTitle">${data.title}</div>
+        <div class="nodeDes">${data.description}</div>
+        <div class="nodeLink"><a href=${data.link} target="_blank">Try it out</a></div>
+        </div>`;
+        table.insertAdjacentHTML("beforeend", element);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "scripture",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config_DEV_Local.env nodemon src/index.js",
+    "dev-cloud": "env-cmd -f ./config_DEV_Cloud.env nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mohammad-adil/scripture.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammad-adil/scripture/issues"
+  },
+  "homepage": "https://github.com/mohammad-adil/scripture#readme",
+  "dependencies": {
+    "@google/generative-ai": "^0.16.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.6",
+    "env-cmd": "^10.1.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.5",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.12",
+    "validator": "^13.7.0"
+  }
+}
